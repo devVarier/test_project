@@ -13,6 +13,7 @@ public class ErrorHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ErrorResponse methodArgumentNotValidException(MethodArgumentNotValidException e){
-        return new ErrorResponse(400, e.getFieldError().getDefaultMessage());
+       // return new ErrorResponse(400, e.getFieldError().getDefaultMessage());
+        return new ErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR.getStatusCode(), ErrorCode.INTERNAL_SERVER_ERROR.getMessage());
     }
 }
